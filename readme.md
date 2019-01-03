@@ -30,3 +30,6 @@ Callback functions are called on the sender's thread; i.e. this library does not
 [Qt](https://doc.qt.io/qt-5/signalsandslots.html): Qt has its own event loop and signals and slots. It has a lot of dependencies which may or may not be necessary for your system.
 
 [Daniel Dinu's Observable](https://github.com/ddinu/observable): Started off with a very similar fashion, Daniel Dinu also has a simple observable library. His library, however, did not have two features I needed at the time I wrote this one: thread-safety and (more than one) memory.
+
+# Build status
+ [![Build Status](https://travis-ci.org/CihanSari/observer.svg?branch=master)](https://travis-ci.org/CihanSari/observer)
