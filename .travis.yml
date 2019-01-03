@@ -5,34 +5,34 @@ cache:
 
 matrix:
   include:
-    - env: CC=gcc-7 CXX=g++-7
+    - env: CC=gcc-8.2 CXX=g++-8.2
       os: linux
-      dist: trusty
       sudo: require
       addons:
         apt:
-          sources: *sources
+          sources:
+            - ubuntu-toolchain-r-test
           packages:
-            - gcc-7
-            - g++-7
+            - gcc-8.2
+            - g++-8.2
 
-    - env: CC=clang-5.0 CXX=clang++-5.0
+    - env: CC=clang-7.0 CXX=clang++-7.0
+      sudo: require
       os: linux
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-trusty-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
 
     - os: osx
-      osx_image: xcode9.3
+      osx_image: xcode10.1
 
-      
     - os: windows
 
 script:
-    - mkdir build && cd build
-    - cmake ..
-    - cmake --build . --config debug
-    - ctest -V -C debug
+  - mkdir build && cd build
+  - cmake ..
+  - cmake --build . --config debug
+  - ctest -V -C debug
