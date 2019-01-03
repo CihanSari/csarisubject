@@ -16,19 +16,17 @@ matrix:
             - gcc-8
             - g++-8
 
-    - env: CC=clang-7 CXX=clang++-7
-      sudo: false
-      os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-7
-          packages:
-            - clang-7
+    - compiler: clang
+      env:
+        - CC=clang
+        - CXX=clang++
 
-    - os: osx
-      osx_image: xcode10.1
-
+    - compiler: clang
+      os: osx
+      env:
+        - CC=clang
+        - CXX=clang
+        
     - os: windows
 
 script:
