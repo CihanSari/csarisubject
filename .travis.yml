@@ -5,7 +5,7 @@ cache:
 
 matrix:
   include:
-    - env: CC=gcc-7 CXX=g++-7 STD=17
+    - env: CC=gcc-7 CXX=g++-7
       os: linux
       dist: trusty
       sudo: require
@@ -16,7 +16,7 @@ matrix:
             - gcc-7
             - g++-7
 
-    - env: CC=clang-5.0 CXX=clang++-5.0 STD=17
+    - env: CC=clang-5.0 CXX=clang++-5.0
       os: linux
       addons:
         apt:
@@ -25,16 +25,14 @@ matrix:
           packages:
             - clang-5.0
 
-    - env: STD=17
-      os: osx
+    - os: osx
       osx_image: xcode9.3
 
       
-    - env: STD=17
-      os: windows
+    - os: windows
 
 script:
     - mkdir build && cd build
-    - cmake -DCPP_STANDARD=17 ..
+    - cmake ..
     - cmake --build . --config debug
     - ctest -V -C debug

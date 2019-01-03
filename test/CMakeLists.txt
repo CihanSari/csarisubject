@@ -1,5 +1,6 @@
 set(testcase unit)
 
+
 # Download and unpack googletest at configure time
 set(GOOGLETEST_DIR ${CMAKE_BINARY_DIR}/googletest-download)
 message(STATUS ${CMAKE_BINARY_DIR}/googletest-download)
@@ -27,4 +28,6 @@ add_executable(${testcase}
 src/${testcase}.cpp
 ../observer/include/csari/observer.hpp)
 target_link_libraries(${testcase} gtest_main csari_observer)
+set_target_properties(${testcase} PROPERTIES CXX_STANDARD 17)
+set_target_properties(${testcase} PROPERTIES CXX_STANDARD_REQUIRED on)
 add_test(NAME ${testcase}_test COMMAND ${testcase})
